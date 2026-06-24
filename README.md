@@ -43,11 +43,6 @@ Script	Purpose
 `experiments/evaluate_minigpt.py`	Run Neural Gate and baseline editing/evaluation on MiniGPT4-LLaMA2-7B.
 `experiments/layer_loc_llava.py`	Layer/neuron localization analysis for LLaVA.
 `experiments/layer_loc_minigpt.py`	Layer/neuron localization analysis for MiniGPT-4.
-`experiments/causal_trace.py`	Causal tracing utilities for locating influential components.
-`experiments/sweep.py`	Hyperparameter/layer sweep utilities.
-`experiments/summarize.py`	Aggregate run outputs saved under `results/`.
-`experiments/test_pt.py`	MiniGPT-4 probing/testing helper.
-`experiments/test_pt_llava.py`	LLaVA probing/testing helper.
 Datasets
 The repository includes Neural Gate privacy editing dataset JSON files under `data/`:
 `data/neural_gate_documents_en.json`
@@ -108,24 +103,7 @@ python experiments/evaluate_minigpt.py \
   --hparams_fname minigpt4_llama2_7b.json 
 ```
 The MiniGPT-4 script also contains default loops over Neural Gate layer settings near the bottom of `experiments/evaluate_minigpt.py`.
-Evaluation and Summaries
-Experiment outputs are saved under `results/<alg_name>/...` by default. To summarize a run directory:
-```bash
-python experiments/summarize.py --dir_name Ours
-```
-To summarize selected runs only:
-```bash
-python experiments/summarize.py --dir_name Ours --runs run_000,run_001
-```
-The summary script reports editing efficacy, paraphrase generalization, neighborhood specificity, and aggregate scores when the corresponding result fields are available.
-In the paper, the main metrics are:
-RtA / Refusal Rate: refusal behavior on privacy-sensitive samples.
-EtA: average of refusal rate on sensitive samples and non-refusal behavior on insensitive samples, used as a joint privacy-utility measure on PrivacyPair-test.
-ACC: standard accuracy for utility benchmarks such as ScienceQA, MME, and POPE.
-The paper reports PrivacyPair-test and MLLMGuard as safety evaluations, and ScienceQA, MME, and POPE as utility evaluations.
-Baselines
-The evaluation scripts include hooks for several editing baselines, including MEMIT, ROME, FT, MEND, DINM, and AlphaEdit. The paper compares against representative editing/unlearning approaches such as MEMIT, AlphaEdit, DINM, SKU, and MemFlex. Some baseline imports may require additional code or dependencies that are not included in this repository snapshot. Neural Gate-specific code is available under `ours/` and uses the `Ours` algorithm entry in the experiment scripts.
-Paper Assets
+
 Please fill in these items after the paper page/assets are finalized:
 ```markdown
 [Paper](TODO)
@@ -140,11 +118,11 @@ assets/
 Citation
 If you use Neural Gate, please cite the paper once the official citation is available:
 ```bibtex
-@inproceedings{TODO_neural_gate,
-  title     = {Neural Gate: Mitigating Privacy Risks in LVLMs via Neuron-Level Gradient Gating},
-  author    = {Xiangkui Cao and Jie Zhang and Meina Kan and Shiguang Shan and Xilin Chen},
-  booktitle = {TODO},
-  year      = {2026}
+@article{cao2026neural,
+  title={Neural Gate: Mitigating Privacy Risks in LVLMs via Neuron-Level Gradient Gating},
+  author={Cao, Xiangkui and Zhang, Jie and Kan, Meina and Shan, Shiguang and Chen, Xilin},
+  journal={arXiv preprint arXiv:2603.12598},
+  year={2026}
 }
 ```
 Notes
