@@ -95,12 +95,7 @@ Example command:
 python experiments/evaluate_llava.py \
   --alg_name Ours \
   --model_name llava1.5-7b \
-  --hparams_fname llava1.5-7b.json \
-  --ds_name mcf \
-  --dataset_size_limit 10 \
-  --num_edits 3 \
-  --questions_per_img 5 \
-  --privacy_value 0
+  --hparams_fname llava1.5-7b.json 
 ```
 By default, the script evaluates Neural Gate on configured LLaVA layers. Edit the layer loop near the bottom of `experiments/evaluate_llava.py` or pass/modify `layer_check` in code for custom layer localization runs.
 MiniGPT-4
@@ -110,13 +105,7 @@ python experiments/evaluate_minigpt.py \
   --alg_name Ours \
   --model_name minigpt4_llama2_7b \
   --cfg-path /path/to/minigpt4_llama2_eval.yaml \
-  --hparams_fname minigpt4_llama2_7b.json \
-  --ds_name mcf \
-  --dataset_size_limit 10 \
-  --num_edits 3 \
-  --questions_per_img 5 \
-  --privacy_value 0 \
-  --gpu-id 0
+  --hparams_fname minigpt4_llama2_7b.json 
 ```
 The MiniGPT-4 script also contains default loops over Neural Gate layer settings near the bottom of `experiments/evaluate_minigpt.py`.
 Evaluation and Summaries
