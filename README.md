@@ -1,6 +1,6 @@
 Neural Gate: Mitigating Privacy Risks in LVLMs via Neuron-Level Gradient Gating
 Neural Gate is a neuron-level model editing framework for privacy protection in large vision-language models (LVLMs). The project focuses on editing privacy-sensitive visual concepts so that a model refuses or redirects unsafe/private queries while preserving normal visual-language capabilities on unrelated questions.
-> **Paper link:** TODO: add arXiv / conference paper URL here.  
+> **Paper link:** https://arxiv.org/abs/2603.12598.  
 > **Paper figure:** TODO: add the main method/framework figure here, for example `assets/neural_gate_overview.png`.
 Official code for Neural Gate: Mitigating Privacy Risks in LVLMs via Neuron-Level Gradient Gating.
 Overview
