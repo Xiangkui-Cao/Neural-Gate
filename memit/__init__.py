@@ -1,0 +1,1 @@
+from .memit_main_minigpt4 import MEMITHyperParams, apply_memit_to_model

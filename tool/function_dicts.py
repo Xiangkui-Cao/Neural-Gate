@@ -1,0 +1,1 @@
+model_list = ["minigpt4_llama2_7b", "llava-1.5"]

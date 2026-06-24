@@ -1,0 +1,17 @@
+{
+    "layers": [6],
+    "layer_selection": "all",
+    "fact_token": "subject_last",
+    "num_steps": 10,
+    "lr": 1e-5,
+    "weight_decay": 0,
+    "kl_factor": 1.25,
+    "norm_constraint": false,
+    "model_parallel": false,
+    "rewrite_module_tmp": "llama_model.model.layers.{}.mlp.down_proj",
+    "layer_module_tmp": "llama_model.model.layers.{}",
+    "mlp_module_tmp": "llama_model.model.layers.{}.mlp",
+    "attn_module_tmp": "llama_model.model.layers.{}.self_attn",
+    "ln_f_module": "llama_model.model.norm",
+    "lm_head_module": "llama_model.lm_head"
+}

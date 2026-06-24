@@ -1,0 +1,20 @@
+---
+  # Result files
+  RESULTS_DIR: "results"
+
+  # Data files
+  DATA_DIR: "data"
+#  DATA_JSONS: ["neural_gate_documents_en.json", "neural_gate_military_vehicles.json", "neural_gate_Passport.json", "neural_gate_Phone_no.json", "neural_gate_Receipts.json", "neural_gate_Student_ID.json"]
+  STATS_DIR: "data/stats"
+#  KV_DIR: "/share/projects/rewriting-knowledge/kvs"
+
+  # Hyperparameters
+  HPARAMS_DIR: "hparams"
+
+  COV_DATA_PATH: "cov/minigpt_cov_dataset.json"
+
+  EVAL_PATH: "data/neural_gate_documents_en.json"
+
+  COV_PATH: "weights/minigpt_cov.pth"
+
+  IMAGE_ROOT: ""
