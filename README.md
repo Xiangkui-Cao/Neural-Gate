@@ -56,7 +56,7 @@ The paper studies six privacy-sensitive subjects: phone numbers, student IDs, re
 Setup
 Create an environment and install dependencies:
 ```bash
-conda create -n neural-gate python=3.10
+conda create -n neural-gate python=3.9
 conda activate neural-gate
 pip install -r requirements.txt
 ```
