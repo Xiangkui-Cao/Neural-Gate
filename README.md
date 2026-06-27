@@ -60,7 +60,7 @@ conda create -n neural-gate python=3.9
 conda activate neural-gate
 pip install -r requirements.txt
 ```
-Then update paths in `globals.yml`:
+Then update paths in `globals.yml` (Images are available at https://github.com/Xiangkui-Cao/Multi-P2A):
 ```yaml
 RESULTS_DIR: "results"
 DATA_DIR: "data"
