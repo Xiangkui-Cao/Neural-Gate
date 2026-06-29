@@ -92,7 +92,7 @@ python experiments/evaluate_minigpt.py \
 ```
 The MiniGPT-4 script also contains default loops over Neural Gate layer settings near the bottom of `experiments/evaluate_minigpt.py`.
 
-```
+
 Citation
 If you use Neural Gate, please cite the paper once the official citation is available:
 ```bibtex
