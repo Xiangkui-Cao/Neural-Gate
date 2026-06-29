@@ -1,22 +1,9 @@
 Neural Gate: Mitigating Privacy Risks in LVLMs via Neuron-Level Gradient Gating
 Neural Gate is a neuron-level model editing framework for privacy protection in large vision-language models (LVLMs). The project focuses on editing privacy-sensitive concepts so that a model refuses unsafe/private queries while preserving normal visual-language capabilities on unrelated questions.
 > **Paper link:** https://arxiv.org/abs/2603.12598.  
-> **Paper figure:** TODO: add the main method/framework figure here, for example `assets/neural_gate_overview.png`.
-Official code for Neural Gate: Mitigating Privacy Risks in LVLMs via Neuron-Level Gradient Gating.
-Overview
-Neural Gate studies privacy-oriented editing for LVLMs such as LLaVA-1.5-7B and MiniGPT4-LLaMA2-7B. The paper targets a model-compliance privacy risk: an LVLM may reveal sensitive information from an input image when asked by a malicious or privacy-invasive instruction, even if that information was not memorized from training data.
-Given paired image-question samples containing the same privacy subject, Neural Gate identifies neurons that consistently encode privacy-related concepts and uses a local gradient truncation mechanism to edit model parameters. The edited model is evaluated on whether it:
-blocks or changes answers for privacy-sensitive rewrite prompts;
-generalizes to paraphrased sensitive prompts;
-preserves behavior on neighboring non-sensitive prompts;
-maintains utility on general LVLM benchmarks.
-The main implementation is in `ours/`, while experiment entry points and evaluation scripts are in `experiments/`.
-Paper Highlights
-Neuron-level gradient gating: Neural Gate learns feature/gating vectors to localize privacy-related neurons and truncates gradients from inactive or weakly activated neurons during editing.
-PrivacyPair dataset: The paper constructs paired sensitive/benign samples that share the same privacy subject but differ in privacy sensitivity, encouraging the model to distinguish privacy intent from normal semantics.
-Generalized privacy protection: The method aims to refuse unseen privacy-related queries by capturing privacy concepts rather than memorizing training prompts or keywords.
-Non-destructive editing: By restricting updates to privacy-relevant neurons, Neural Gate reduces unwanted degradation on benign questions and standard LVLM tasks.
-Evaluation on two LVLMs: Experiments are conducted on MiniGPT4-LLaMA2-7B and LLaVA-1.5-7B, with safety and utility measured on PrivacyPair-test, MLLMGuard, ScienceQA, MME, and POPE.
+> **Paper abstract:** Large Vision-Language Models (LVLMs) have shown remarkable potential across a wide array of vision-language tasks, leading to their adoption in critical domains such as finance and healthcare. However, their growing deployment also introduces significant security and privacy risks. Malicious actors could potentially exploit these models to extract sensitive information, highlighting a critical vulnerability. Recent studies show that LVLMs often fail to consistently refuse instructions designed to compromise user privacy. While existing work on privacy protection has made meaningful progress in preventing the leakage of sensitive data, they are constrained by limitations in both generalization and non-destructiveness. They often struggle to robustly handle
+unseen privacy-related queries and may inadvertently degrade a model's performance on standard tasks. To address these challenges, we introduce Neural Gate, a novel method for mitigating privacy risks through neuron-level model editing. Our method improves a model's privacy safeguards by increasing its rate of refusal for privacy-related questions, crucially extending this protective behavior to novel sensitive queries not encountered during the editing process. Neural Gate operates by learning a feature vector to identify neurons associated with privacy-related concepts within the model's representation of a subject. This localization then precisely guides the update of model parameters. Through comprehensive experiments on MiniGPT and LLaVA, we demonstrate that our method significantly boosts the model's privacy protection while preserving its original utility.
+
 Repository Structure
 ```text
 .
@@ -104,16 +91,6 @@ python experiments/evaluate_minigpt.py \
 ```
 The MiniGPT-4 script also contains default loops over Neural Gate layer settings near the bottom of `experiments/evaluate_minigpt.py`.
 
-Please fill in these items after the paper page/assets are finalized:
-```markdown
-[Paper](TODO)
-
-![Neural Gate overview](TODO: path/to/figure.png)
-```
-Recommended figure placement:
-```text
-assets/
-└── neural_gate_overview.png
 ```
 Citation
 If you use Neural Gate, please cite the paper once the official citation is available:
