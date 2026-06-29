@@ -74,7 +74,7 @@ Running Neural Gate
 LLaVA-1.5
 Example command:
 ```bash
-python experiments/evaluate_llava.py \
+python -m experiments.evaluate_llava \
   --alg_name Ours \
   --model_name llava1.5-7b \
   --hparams_fname llava1.5-7b.json 
@@ -83,7 +83,7 @@ By default, the script evaluates Neural Gate on configured LLaVA layers. Edit th
 MiniGPT-4
 Example command:
 ```bash
-python experiments/evaluate_minigpt.py \
+python -m experiments.evaluate_minigpt \
   --alg_name Ours \
   --model_name minigpt4_llama2_7b \
   --cfg-path /path/to/minigpt4_llama2_eval.yaml \
