@@ -93,7 +93,7 @@ The MiniGPT-4 script also contains default loops over Neural Gate layer settings
 
 
 ## Citation
-If you use Neural Gate, please cite the paper once the official citation is available:
+If you use Neural Gate, please cite us:
 ```bibtex
 @article{cao2026neural,
   title={Neural Gate: Mitigating Privacy Risks in LVLMs via Neuron-Level Gradient Gating},
