@@ -1,11 +1,11 @@
-Neural Gate: Mitigating Privacy Risks in LVLMs via Neuron-Level Gradient Gating (Accepted by ECCV 2026)
+## Neural Gate: Mitigating Privacy Risks in LVLMs via Neuron-Level Gradient Gating (Accepted by ECCV 2026)
 
 Neural Gate is a neuron-level model editing framework for privacy protection in large vision-language models (LVLMs). The project focuses on editing privacy-sensitive concepts so that a model refuses unsafe/private queries while preserving normal visual-language capabilities on unrelated questions.
 > **Paper link:** https://arxiv.org/abs/2603.12598.  
 > **Paper abstract:** Large Vision-Language Models (LVLMs) have shown remarkable potential across a wide array of vision-language tasks, leading to their adoption in critical domains such as finance and healthcare. However, their growing deployment also introduces significant security and privacy risks. Malicious actors could potentially exploit these models to extract sensitive information, highlighting a critical vulnerability. Recent studies show that LVLMs often fail to consistently refuse instructions designed to compromise user privacy. While existing work on privacy protection has made meaningful progress in preventing the leakage of sensitive data, they are constrained by limitations in both generalization and non-destructiveness. They often struggle to robustly handle
 unseen privacy-related queries and may inadvertently degrade a model's performance on standard tasks. To address these challenges, we introduce Neural Gate, a novel method for mitigating privacy risks through neuron-level model editing. Our method improves a model's privacy safeguards by increasing its rate of refusal for privacy-related questions, crucially extending this protective behavior to novel sensitive queries not encountered during the editing process. Neural Gate operates by learning a feature vector to identify neurons associated with privacy-related concepts within the model's representation of a subject. This localization then precisely guides the update of model parameters. Through comprehensive experiments on MiniGPT and LLaVA, we demonstrate that our method significantly boosts the model's privacy protection while preserving its original utility.
 
-Repository Structure
+## Repository Structure
 ```text
 .
 ├── data/                  # Neural Gate / PrivacyPair-style editing datasets in JSON format
@@ -24,14 +24,14 @@ Repository Structure
 ├── requirements.txt       # Python dependency list
 └── results.py             # Result processing helper
 ```
-Main Experiments
+## Main Experiments
 Most experiments should be launched from the `experiments/` folder or by calling scripts under `experiments/` from the repository root.
 Script	Purpose
 `experiments/evaluate_llava.py`	Run Neural Gate and baseline editing/evaluation on LLaVA-1.5-7B.
 `experiments/evaluate_minigpt.py`	Run Neural Gate and baseline editing/evaluation on MiniGPT4-LLaMA2-7B.
 `experiments/layer_loc_llava.py`	Layer/neuron localization analysis for LLaVA.
 `experiments/layer_loc_minigpt.py`	Layer/neuron localization analysis for MiniGPT-4.
-Datasets
+## Datasets
 The repository includes Neural Gate privacy editing dataset JSON files under `data/`:
 `data/neural_gate_documents_en.json`
 `data/neural_gate_military_vehicles.json`
@@ -41,7 +41,7 @@ The repository includes Neural Gate privacy editing dataset JSON files under `da
 `data/neural_gate_Student_ID.json`
 Each sample contains an image path, a `requested_rewrite` target, paraphrase prompts, neighborhood prompts, and generation prompts. These files correspond to the PrivacyPair-style setting described in the paper: sensitive prompts test privacy protection, while neighboring/benign prompts test whether normal non-sensitive behavior is preserved.
 The paper studies six privacy-sensitive subjects: phone numbers, student IDs, receipts, passports, military equipment, and government documents. Configure the image root with `IMAGE_ROOT` in `globals.yml`; image paths in the JSON files are resolved relative to that root.
-Setup
+## Setup
 Create an environment and install dependencies:
 ```bash
 conda create -n neural-gate python=3.9
@@ -60,7 +60,7 @@ You also need local checkpoints for the target LVLMs:
 LLaVA-1.5-7B for `experiments/evaluate_llava.py`;
 MiniGPT-4 LLaMA2-7B and its eval config for `experiments/evaluate_minigpt.py`.
 > Note: some scripts currently contain machine-specific checkpoint paths and CUDA settings. Before running, replace those paths with your local model paths and set `CUDA_VISIBLE_DEVICES` / `--gpu-id` according to your hardware.
-Hyperparameters
+## Hyperparameters
 Neural Gate hyperparameters are stored in `hparams/Ours/`:
 `hparams/Ours/llava1.5-7b.json`: default LLaVA setting, editing `model.layers.{}.mlp.down_proj`.
 `hparams/Ours/minigpt4_llama2_7b.json`: default MiniGPT-4 setting, editing `llama_model.model.layers.{}.mlp.down_proj`.
@@ -93,7 +93,7 @@ python experiments/evaluate_minigpt.py \
 The MiniGPT-4 script also contains default loops over Neural Gate layer settings near the bottom of `experiments/evaluate_minigpt.py`.
 
 
-Citation
+## Citation
 If you use Neural Gate, please cite the paper once the official citation is available:
 ```bibtex
 @article{cao2026neural,
@@ -103,7 +103,7 @@ If you use Neural Gate, please cite the paper once the official citation is avai
   year={2026}
 }
 ```
-Notes
+## Notes
 The main reproducibility path is through `experiments/`, not through standalone package entry points.
 `globals.yml` controls project-level paths used by loaders and evaluators.
 Large model checkpoints and image assets are not included in this repository.
