@@ -29,8 +29,7 @@ Most experiments should be launched from the `experiments/` folder or by calling
 Script	Purpose
 `experiments/evaluate_llava.py`	Run Neural Gate and baseline editing/evaluation on LLaVA-1.5-7B.
 `experiments/evaluate_minigpt.py`	Run Neural Gate and baseline editing/evaluation on MiniGPT4-LLaMA2-7B.
-`experiments/layer_loc_llava.py`	Layer/neuron localization analysis for LLaVA.
-`experiments/layer_loc_minigpt.py`	Layer/neuron localization analysis for MiniGPT-4.
+
 ## Datasets
 The repository includes Neural Gate privacy editing dataset JSON files under `data/`:
 `data/neural_gate_documents_en.json`
