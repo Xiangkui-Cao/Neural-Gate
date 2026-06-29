@@ -106,4 +106,3 @@ If you use Neural Gate, please cite us:
 The main reproducibility path is through `experiments/`, not through standalone package entry points.
 `globals.yml` controls project-level paths used by loaders and evaluators.
 Large model checkpoints and image assets are not included in this repository.
-The included PDF can be used to complete the paper link, figure, method description, and citation details when the final version is available.
